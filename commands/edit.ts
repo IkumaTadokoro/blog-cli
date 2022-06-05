@@ -1,4 +1,4 @@
-import { Command, prompt, Select } from "../deps.ts";
+import { Command, Select } from "../deps.ts";
 import { ConfigData } from "../types.d.ts";
 import { readArticles } from "../util.ts";
 

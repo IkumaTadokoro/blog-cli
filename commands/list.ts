@@ -15,7 +15,11 @@ export class ListCommand extends Command {
           const articles = readArticles(blogPath).slice(0, limit);
           new Table()
             .header(["name", "title", "published_at"])
-            .body(articles.map((article) => [article.name, article.title, article.date]))
+            .body(
+              articles.map((
+                article,
+              ) => [article.name, article.title, article.date]),
+            )
             .border(true)
             .render();
         }
