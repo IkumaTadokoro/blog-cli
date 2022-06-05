@@ -1,5 +1,5 @@
-import { Command } from "../deps.ts";
-import { Article, ConfigData } from "../types.d.ts";
+import { Command, Table } from "../deps.ts";
+import { ConfigData } from "../types.d.ts";
 import { readArticles } from "../util.ts";
 
 export class ListCommand extends Command {
@@ -13,14 +13,12 @@ export class ListCommand extends Command {
         if (this.config) {
           const blogPath = this.config.blogPath;
           const articles = readArticles(blogPath).slice(0, limit);
-          console.log(this.formatTree(articles));
+          new Table()
+            .header(["name", "title", "published_at"])
+            .body(articles.map((article) => [article.name, article.title, article.date]))
+            .border(true)
+            .render();
         }
       });
-  }
-
-  private formatTree(articles: Article[]): string {
-    return articles.map((article) => {
-      return `${article.name}\n ├──${article.title}\n └──${article.date}`;
-    }).join("\n");
   }
 }
