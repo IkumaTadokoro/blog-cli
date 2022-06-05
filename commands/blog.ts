@@ -6,6 +6,7 @@ import { NewCommand } from "./new.ts";
 import { ConfigCommand } from "./config.ts";
 import { ListCommand } from "./list.ts";
 import { ConfigData } from "../types.d.ts";
+import { EditCommand } from "./edit.ts";
 
 export class BlogCommand extends Command {
   constructor(private config: ConfigData | null) {
@@ -18,6 +19,7 @@ export class BlogCommand extends Command {
       .command("list", new ListCommand(this.config))
       .command("open", new OpenCommand())
       .command("config", new ConfigCommand())
-      .command("new", new NewCommand(this.config));
+      .command("new", new NewCommand(this.config))
+      .command("edit", new EditCommand(this.config));
   }
 }
