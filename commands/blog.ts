@@ -1,4 +1,4 @@
-import { Command } from "../deps.ts";
+import { Command, CompletionsCommand } from "../deps.ts";
 import { version } from "../version.ts";
 import { BLOG_URL } from "../const.ts";
 import { OpenCommand } from "./open.ts";
@@ -13,6 +13,7 @@ export class BlogCommand extends Command {
       .name("blog")
       .version(version)
       .description(`✍️ CLI tool for my blog: ${BLOG_URL}`)
+      .command("completions", new CompletionsCommand())
       .command("open", new OpenCommand())
       .command("config", new ConfigCommand())
       .command("new", new NewCommand(this.config));
