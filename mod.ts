@@ -1,5 +1,7 @@
 import { BlogCommand } from "./commands/blog.ts";
+import { loadConfig } from "./loadConfig.ts";
 
 if (import.meta.main) {
-  new BlogCommand().parse(Deno.args);
+  const config = await loadConfig();
+  new BlogCommand(config).parse(Deno.args);
 }
