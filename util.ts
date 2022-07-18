@@ -44,3 +44,4 @@ export const red = colors.bold.red;
 export const green = colors.bold.green;
 export const blue = colors.bold.blue;
 export const yellow = colors.bold.yellow;
+export const dim = colors.dim;
