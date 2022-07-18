@@ -1,3 +1,4 @@
+import { colors } from './deps.ts'
 import { Article, FrontMatter } from "./types.d.ts";
 import { parse } from "https://deno.land/x/frontmatter@v0.1.4/mod.ts";
 
@@ -38,3 +39,8 @@ function isFrontMatter(data: any): data is FrontMatter {
     typeof data.date === "string"
   );
 }
+
+export const red = colors.bold.red;
+export const green = colors.bold.green;
+export const blue = colors.bold.blue;
+export const yellow = colors.bold.yellow;
